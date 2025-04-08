@@ -1,5 +1,5 @@
 import express from 'express';
-import { routerMain } from './routes/home';
+import { routerMain } from '../routes/home';
 
 const ejs = require('ejs');
 const path = require('path');
