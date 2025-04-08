@@ -1,13 +1,16 @@
 import express from 'express';
 import { routerMain } from './routes/home';
 
+const ejs = require('ejs');
+const path = require('path');
 const dotenv = require("dotenv")
 
-dotenv.config()
-const app = express()
+dotenv.config();
+const app = express();
 
-app.set('views', __dirname + '/src/views')
-app.set("view engine", "ejs")
+app.set('views', path.join(__dirname,'src/views'));
+app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname,"public")));
 
 app.use('/', routerMain);
 
@@ -17,7 +20,7 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-app.use(express.static(__dirname +"/public"));
+
 
 const PORT = process.env.PORT ?? 3000;
 
