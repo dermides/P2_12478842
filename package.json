@@ -2,10 +2,10 @@
   "name": "sistema_alquiler",
   "version": "1.0.0",
   "description": "Servicio de alquiler de ropa de lujo o trajes de ocasión (para eventos formales).",
-  "main": "app.js",
+  "main": "app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node-dev app.js"
+    "start": "ts-node-dev app.ts"
   },
   "keywords": [],
   "author": "",
