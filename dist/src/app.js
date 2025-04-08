@@ -11,7 +11,7 @@ const path = require('path');
 const dotenv = require("dotenv");
 dotenv.config();
 const app = (0, express_1.default)();
-app.set('views', path.join(__dirname, "views"));
+app.set('views', path.join(__dirname, "src/views"));
 app.set("view engine", "ejs");
 app.use(express_1.default.static(path.join(__dirname, "public")));
 app.use('/', home_1.routerMain);
