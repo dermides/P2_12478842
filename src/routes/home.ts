@@ -1,7 +1,7 @@
 import { Router } from "express";
 
-export const routerMain = Router();
+export const routerHome = Router();
 
-routerMain.get('/', (req, res) => {
+routerHome.get('/', (req, res) => {
     res.render('index', { titulo : "Sistema de alquiler"});
 });

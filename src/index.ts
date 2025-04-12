@@ -1,11 +1,19 @@
-import express from 'express';
+import express from "express";
+import cors from "cors";
+
+import { routerHome } from "./routes/home";
+import dotenv from 'dotenv'; 
+dotenv.config();
 
 const app = express();
-const port = 3000;
+app.use(cors());
+const port = process.env.SERVER_PORT || 3000;
 
-app.get('/', (req, res) => {
-  res.send('¡Hola Mundo!');
-});
+app.use(express.static(__dirname +"/public"));
+app.set('views', __dirname + '/views')
+app.set("view engine", "ejs")
+
+app.get('/', routerHome);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
