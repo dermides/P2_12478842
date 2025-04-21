@@ -1,8 +1,6 @@
 import express from "express";
-import { router } from "../routes/router";
+import { home } from "./home";
 
-const web = express();
-console.log('Estoy en web:',`${router}`);
-web.get('/', router);
+export const web = express();
 
-export { web };
+web.use('/', home);
