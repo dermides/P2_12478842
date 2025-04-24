@@ -1,9 +1,10 @@
-import { Router } from "express";
+import { Router} from "express";
+import { renderHome,renderBeneficios } from "../controllers/homeController";
 
-const home = Router();
+const routeHome = Router();
 
-home.get('/', (req, res) => {
-    res.render("index", { titulopage : "Sistema de alquiler"});
-});
+routeHome.get("/", renderHome);
 
-export { home };
+routeHome.get("/beneficios", renderBeneficios);
+
+export default routeHome;

@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { home } from "./routes/home";
-import { web } from "./routes/web";
+import routeHome from "./routes/home";
 
 import dotenv from 'dotenv'; 
 
@@ -13,12 +12,18 @@ app.use(cors());
 const port = process.env.SERVER_PORT || 3000;
 
 app.use(express.static(__dirname +"/public"));
-app.set('views', __dirname + '/views')
-app.set("view engine", "ejs")
+app.set('views', __dirname + '/views');
+app.set("view engine", "ejs");
 
-app.use('/',home);
+app.use('/', routeHome); // Importar las rutas de home.ts
 
-app.use(express.json());
+
+app.use((req, res) => {
+  res.statusCode = 404
+  res.send('404 not Found')
+});
+
+
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,14 @@
 
     <title><%= titulopage %></title>
 
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/plugins/bulma/css/bulma.min.css">
     <link rel="stylesheet" href="assets/plugins/boxicons/css/boxicons.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
 
 </head>
 <body>
-    <header>
+    <!--<header>
         <div class="container">
             <a class="logo">Ropa de Lujo</a>
             <nav>
@@ -26,7 +28,10 @@
                     </div>
                 </div>
                 <div class="dropdown">
-                    <li><a class="alink" href="#">Nueva Ropa</a></li>
+                    <li><a class="alink" href="#">Beneficios</a></li>
+                </div>
+                <div class="dropdown">
+                    <li><a class="alink" href="#">Ventajas</a></li>
                 </div>
                 <div class="dropdown">
                     <li><a class="alink" href="#">Temporada</a></li>
@@ -46,21 +51,93 @@
                 
             </nav>
         </div>
-    </header>
+    </header>-->
     
-    <section class="hero">
-        <div class="hero-image-container">
-            <img class="hero-image" src="assets/img/modelo_002.jpg" alt="Cinque Terre">
+   
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <img width="80" height="60" src="assets/img/corbata_logo.png"></img>
+            LUJO
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
         </div>
-        <div class="hero-text">
-            <h2>¡Alquiler de ropa de lujo!</h2>
-            <p>Tenemos para ti ropa de lujo y de ocasion.</p>
-            <a href="#" rel="noopener noreferrer">Ver mas...</a>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start navbar-center">
+            <a href="/" class="navbar-item">
+              Home
+            </a>
+            <a href="/beneficios" class="navbar-item">
+              Beneficios
+            </a>
+            <a class="navbar-item">
+              Ventajas
+            </a>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                Categorias
+              </a>
+      
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  Niños
+                </a>
+                <a class="navbar-item is-selected">
+                  Caballeros
+                </a>
+                <a class="navbar-item">
+                  Mujeres
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item">
+                  Zapatos
+                </a>
+              </div>
+            </div>
+          </div>
+      
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-primary">
+                  <strong>Registrate</strong>
+                </a>
+                <a class="button is-light">
+                  Mi Cuenta
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-        
-    </section>
-
-
+    </nav>
+  
+  
+    <div class="hero is-fullheight has-background-primary-10">
+      <img alt="Fill Murray" class="hero-background is-transparent" src="assets/img/tienda_001.jpg" />
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title has-text-white">
+            Servicio de Alquiler de Ropa de Lujo
+          </h1>
+          <h3 class="subtitle has-text-white">
+            trajes de ocasion para eventos formales
+          </h3>
+          
+        </div>
+        <figure class="image is-256x256">
+          <img src="assets/img/modelo_013.png" />
+        </figure>
+      </div>
+    </div>
+  
+ 
     
 
     
