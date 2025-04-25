@@ -16,7 +16,11 @@ app.use(express.static(join(__dirname +"/public")));
 app.set('views', join(__dirname + '/views'));
 app.set("view engine","ejs");
 
-app.use('/', routeHome); // Importar las rutas de home.ts
+app.get("/", (req, res) => {
+  res.render("index"); // Renderizar la vista index.ejs en la carpeta views
+});
+
+app.use(routeHome); // Importar las rutas de home.ts
 
 
 app.use((req, res) => {

@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.renderContactos = exports.renderNosotros = exports.renderVentajas = exports.renderBeneficios = exports.renderHome = void 0;
 const renderHome = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.render("index");
+    res.render("home/index");
 });
 exports.renderHome = renderHome;
 const renderBeneficios = (req, res) => __awaiter(void 0, void 0, void 0, function* () {

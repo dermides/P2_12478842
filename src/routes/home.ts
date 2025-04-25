@@ -9,7 +9,7 @@ import {
 
 const routeHome = Router();
 
-routeHome.get("/", renderHome);
+//routeHome.get("/", renderHome);
 
 routeHome.get("/beneficios", renderBeneficios);
 routeHome.get("/ventajas", renderVentajas);
