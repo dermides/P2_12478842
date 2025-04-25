@@ -13,55 +13,16 @@
     
 
 </head>
-<body>
-    <!--<header>
-        <div class="container">
-            <a class="logo">Ropa de Lujo</a>
-            <nav>
-                <ul>
-                <div class="dropdown">
-                    <li><a class="alink">Categorias</a></li>
-                    <div class="dropdown-content">
-                      <li><a href="#">Link 1</a></li>
-                      <li></li><a href="#">Link 2</a></li>
-                      <li></li><a href="#">Link 3</a></li>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <li><a class="alink" href="#">Beneficios</a></li>
-                </div>
-                <div class="dropdown">
-                    <li><a class="alink" href="#">Ventajas</a></li>
-                </div>
-                <div class="dropdown">
-                    <li><a class="alink" href="#">Temporada</a></li>
-                </div>
-                <div class="dropdown">
-                    <li><a class="alink" href="#">Quienes Somos</a></li>
-                </div>
-                <div class="dropdown">
-                    <li><a class="alink">Mi cuenta</a></li>
-                    <div class="dropdown-content">
-                      <li><a href="#">Link 1</a></li>
-                      <li><a href="#">Link 2</a></li>
-                      <li><a href="#">Link 3</a></li>
-                    </div>
-                </div>
-                </ul>
-                
-            </nav>
-        </div>
-    </header>-->
-    
-   
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+<body class="is-one-third-desktop is-one-third-tablet is-full-mobile has-background-light">
+
+    <nav class="navbar is-fixed-top has-shadow" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
-            <img width="80" height="60" src="assets/img/corbata_logo.png"></img>
+            <img src="assets/img/corbata_logo.png" style="max-height: 40px" class="py-2 px-2"></img>
             LUJO
           </a>
       
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -69,38 +30,47 @@
           </a>
         </div>
       
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start navbar-center">
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-start">
             <a href="/" class="navbar-item">
               Home
             </a>
-            <a href="/beneficios" class="navbar-item">
-              Beneficios
-            </a>
-            <a class="navbar-item">
-              Ventajas
-            </a>
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
-                Categorias
+                Alquiler
               </a>
       
               <div class="navbar-dropdown">
                 <a class="navbar-item">
                   Niños
                 </a>
-                <a class="navbar-item is-selected">
+                <a class="navbar-item">
                   Caballeros
                 </a>
                 <a class="navbar-item">
                   Mujeres
                 </a>
-                <hr class="navbar-divider">
                 <a class="navbar-item">
                   Zapatos
                 </a>
               </div>
             </div>
+
+            <a href="/beneficios" class="navbar-item">
+              Beneficios
+            </a>
+            <a href="/ventajas" class="navbar-item">
+              Ventajas
+            </a>
+
+            <a href="/nosotros" class="navbar-item">
+              Nosotros
+            </a>
+
+            <a href="/contactos" class="navbar-item">
+              Contactanos
+            </a>
+            
           </div>
       
           <div class="navbar-end">
@@ -119,23 +89,7 @@
     </nav>
   
   
-    <div class="hero is-fullheight has-background-primary-10">
-      <img alt="Fill Murray" class="hero-background is-transparent" src="assets/img/tienda_001.jpg" />
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title has-text-white">
-            Servicio de Alquiler de Ropa de Lujo
-          </h1>
-          <h3 class="subtitle has-text-white">
-            trajes de ocasion para eventos formales
-          </h3>
-          
-        </div>
-        <figure class="image is-256x256">
-          <img src="assets/img/modelo_013.png" />
-        </figure>
-      </div>
-    </div>
+    
   
  
     
