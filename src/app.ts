@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import routeHome from "./routes/home";
+import routeAuth from "./routes/auth";
 
 import dotenv from 'dotenv'; 
 import { join } from "path";
@@ -21,6 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.use(routeHome); // Importar las rutas de home.ts
+app.use(routeAuth); // Importar las rutas de auth.ts
 
 
 app.use((req, res) => {

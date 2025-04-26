@@ -23,3 +23,38 @@ body{
 .hero-background.is-transparent {
   opacity: 0.3;
 }
+
+.is-button-blue-plate {
+  color: #f4efef;
+  background-color: #436581;
+}
+
+.is-button-blue-green {
+  color: #f4efef;
+  background-color: #0a6f5e;
+}
+
+.has-background-white-grey{
+  background-color: #c2d4e2 !important;
+}
+
+.has-background-blue-grey{
+  background-color: #7a96ac !important;
+}
+
+.has-background-blue-black{
+  background-color: #162c41 !important;
+}
+
+.text-white-uppercase{
+  text-transform: uppercase !important;
+  color: #fff !important;
+}
+
+.has-background-light{
+  background-color: #f5f5f5 !important;
+}
+
+.login-box{
+  padding: 20px 20px 20px 20px;
+}
