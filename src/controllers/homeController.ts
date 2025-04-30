@@ -1,23 +1,23 @@
 import { Request, Response } from "express";
 
-export const renderHome = async(req: Request, res: Response) => {
+export const renderHome = async(_req: Request, res: Response) => {
     res.render("index");
 };
 
-export const renderBeneficios = async(req: Request, res: Response) => {
+export const renderBeneficios = async(_req: Request, res: Response) => {
     res.render("home/beneficios");
 };
 
-export const renderVentajas = (req: Request, res: Response) => {
+export const renderVentajas = (_req: Request, res: Response) => {
     res.render("home/ventajas");
 };
 
-export const renderNosotros = (req: Request, res: Response) => {
+export const renderNosotros = (_req: Request, res: Response) => {
     res.render("home/nosotros");
 };
 
 export const renderContactos = (req: Request, res: Response) => {
-    res.render("home/contactos");
+    res.render("home/contactos", { messages: req.flash() });
 };
 
 
