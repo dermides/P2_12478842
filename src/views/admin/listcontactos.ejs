@@ -1,0 +1,34 @@
+<%- include('../layouts/header', {titulopage: 'Panel Administrador' }); -%>
+  
+  <div class="container mt-6 mb-6">
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th><abbr title="Position">ID</abbr></th>
+          <th>Nombre</th>
+          <th><abbr title="Played">Email</abbr></th>
+          <th><abbr title="Won">Comentario</abbr></th>
+          <th><abbr title="Drawn">IP</abbr></th>
+          <th><abbr title="Lost">Fecha</abbr></th>
+          
+        </tr>
+      </thead>
+      
+      <tbody>
+        <% contactos.forEach(function(contacto){ %>
+        <tr>
+          <th><%= contacto.id %></th>
+          <td><%= contacto.nombre %></td>
+          <td><%= contacto.email %></td>         
+          <td><%= contacto.comentario %></td>
+          <td><%= contacto.ip %></td>
+          <td><%= contacto.fecha %></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    
+  </div>
+
+  <%- include('../layouts/footer'); -%>

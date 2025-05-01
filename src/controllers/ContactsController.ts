@@ -4,6 +4,12 @@ import ContactsModel from '../models/ContactsModel';
 const requestIp = require('request-ip')
 
 class ContactsController {
+
+  async indexContactos(_req: Request, res: Response) {
+    const contactos = await ContactsModel.findAll();
+    res.render('admin/listcontactos', { contactos });
+  }
+
   async getContacts(_req: Request, res: Response) {
     const contacts = await ContactsModel.findAll();
     res.json(contacts);
@@ -16,7 +22,6 @@ class ContactsController {
     await ContactsModel.create(nombre, email, comentario, ip);
     //res.json(contact);
     req.flash('success', '¡Contacto guardado exitosamente!');
-
     res.redirect('/contactos'); // Redirigir a la ruta /contact/add después de agregar el contacto
   }
 }

@@ -6,6 +6,7 @@ import flash from 'connect-flash';
 import routeHome from "./routes/home";
 import routeAuth from "./routes/auth";
 import contactsRoute from './routes/contactsRoute';
+import routeAdmin from "./routes/admin";
 
 import dotenv from 'dotenv'; 
 import { join } from "path";
@@ -14,22 +15,23 @@ dotenv.config();
 
 const app = express();
 
+app.use(cors());
+const port = process.env.SERVER_PORT || 3000;
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static(join(__dirname +"/public")));
+app.set('views', join(__dirname + '/views'));
+app.set("view engine","ejs");
+
 app.use(session({
-  secret: 'mi_secreto',
+  secret: 'secreto',
   resave: false,
   saveUninitialized: true
 }));
 
 app.use(flash());
-app.use(express.urlencoded({ extended: true }));
-
-app.use(cors());
-const port = process.env.SERVER_PORT || 3000;
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(join(__dirname +"/public")));
-app.set('views', join(__dirname + '/views'));
-app.set("view engine","ejs");
+//app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (_req, res) => {
   res.render("index"); // Renderizar la vista index.ejs en la carpeta views
@@ -38,6 +40,7 @@ app.get("/", (_req, res) => {
 app.use(routeHome); // Importar las rutas de home.ts
 app.use(routeAuth); // Importar las rutas de auth.ts
 app.use(contactsRoute); // Importar las rutas de contactsRoutes.ts
+app.use(routeAdmin); // Importar las rutas de admin.ts
 
 app.use((_req, res) => {
   res.statusCode = 404
