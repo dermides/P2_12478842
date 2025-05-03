@@ -1,0 +1,113 @@
+<%- include('../layouts/header', {titulopage: 'Formulario de Pago' }); -%>
+  <section class="hero is-info mt-6">
+    <div class="hero-body">
+      <p class="title has-text-primary-100 is-uppercase">Formulario de Pago</p>
+      <p class="subtitle has-text-primary-100">Realice su pago para recivir su compra</p>
+    </div>
+  </section>
+
+  <form class="box" action="/payment/add" method="POST">
+
+    <h1>Formulario de Pago</h1>
+    <h2>Informacion de Pago</h2>
+
+    <div class="field">
+        <label class="label">Nombre del Titular:* </label>
+        <div class="control has-icons-left">
+            <input class="input is-success" type="text" name="name" required="">
+            <span class="icon is-small is-left">
+                <i class='bx bxs-user-badge'></i>
+            </span>
+            
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Email</label>
+        <div class="control has-icons-left">
+          <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
+          <span class="icon is-small is-left">
+            <i class='bx bxs-envelope'></i>
+          </span>
+          
+        </div>
+        <p class="help is-danger">This email is invalid</p>
+      </div>
+
+      <div class="field">
+        <label class="label">Numero de tarjeta:* </label>
+        <div class="control has-icons-left">
+            <input class="input is-success" type="text" name="name" required="">
+            <span class="icon is-small is-left">
+                <i class='bx bxs-credit-card-alt'></i>
+            </span>
+            
+        </div>
+    </div>
+    
+    <h1>Fecha de Vencimiento:</h1>
+
+    <div class="field">
+        <label class="label">Mes:* </label>
+        <div class="control has-icons-left">
+            <input class="input is-success" type="text" name="name" required="">
+            <span class="icon is-small is-left">
+                <i class='bx bxs-calendar'></i>
+            </span>
+            
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Año:* </label>
+        <div class="control has-icons-left">
+            <input class="input is-success" type="text" name="name" required="">
+            <span class="icon is-small is-left">
+                <i class='bx bxs-calendar'></i>
+            </span>
+            
+        </div>
+    </div>
+    
+    <div class="field">
+        <label class="label">CVV:* </label>
+        <div class="control has-icons-left">
+            <input class="input is-success" type="text" name="name" required="">
+            <span class="icon is-small is-left">
+                <i class='bx bxs-calendar'></i>
+            </span>
+            
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Monto a pagar:* </label>
+        <div class="control has-icons-left">
+            <input class="input is-success" type="text" name="name" required="">
+            <span class="icon is-small is-left">
+                <i class='bx bxs-calendar'></i>
+            </span>
+            
+        </div>
+    </div>
+
+    <label for="card_type">Moneda:</label>
+    <div class="control">
+        <div class="select">
+          <select>
+            <option>Select dropdown</option>
+            <option>With options</option>
+          </select>
+        </div>
+      </div>
+    
+    <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link">Submit</button>
+        </div>
+        <div class="control">
+          <button class="button is-link is-light">Cancel</button>
+        </div>
+      </div>
+ 
+  </form>
+
+<%- include('../layouts/footer'); -%>

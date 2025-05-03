@@ -22,4 +22,8 @@ export const renderContactos = (req: Request, res: Response) => {
     res.render("home/contactos", { message: req.flash() });
 };
 
+export const renderPagos = (_req: Request, res: Response) => {
+    res.render("home/pagos");
+};
+
 
