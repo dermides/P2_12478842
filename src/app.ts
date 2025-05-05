@@ -7,6 +7,7 @@ import routeHome from "./routes/home";
 import routeAuth from "./routes/auth";
 import contactsRoute from './routes/contactsRoute';
 import routeAdmin from "./routes/admin";
+import routePayment from "./routes/paymentRoute";
 
 import dotenv from 'dotenv'; 
 import { join } from "path";
@@ -41,6 +42,7 @@ app.use(routeHome); // Importar las rutas de home.ts
 app.use(routeAuth); // Importar las rutas de auth.ts
 app.use(contactsRoute); // Importar las rutas de contactsRoutes.ts
 app.use(routeAdmin); // Importar las rutas de admin.ts
+app.use(routePayment); // Importar las rutas de paymentRoute.ts
 
 app.use((_req, res) => {
   res.statusCode = 404

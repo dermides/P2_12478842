@@ -1,7 +1,5 @@
 import { Request, Response } from "express";
 
-
-
 export const renderHome = async(_req: Request, res: Response) => {
     res.render("index");
 };
@@ -22,8 +20,8 @@ export const renderContactos = (req: Request, res: Response) => {
     res.render("home/contactos", { message: req.flash() });
 };
 
-export const renderPagos = (_req: Request, res: Response) => {
-    res.render("home/pagos");
+export const renderPagos = (req: Request, res: Response) => {
+    res.render("home/pagos", { message: req.flash() });
 };
 
 
