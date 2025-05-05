@@ -30,8 +30,9 @@
 </footer>
 
 
-<script src="assets/js/jquery-3.7.1.min.js"></script>
-<script src="assets/js/navbarMenu.js"></script>
+<script src="/assets/js/jquery-3.7.1.min.js"></script>
+<script src="/assets/js/navbarMenu.js"></script>
+<script src="/assets/plugins/datatables/datatables.min.js"></script>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -43,6 +44,14 @@
     });
   });
 });
+</script>
+
+<script>
+  $('#tabla').DataTable({
+    language: {
+        url: 'https://cdn.datatables.net/plug-ins/2.3.0/i18n/es-ES.json',
+    },
+  });
 </script>
 
 </body>

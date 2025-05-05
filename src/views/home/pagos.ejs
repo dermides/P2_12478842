@@ -1,4 +1,5 @@
 <%- include('../layouts/header', {titulopage: 'Formulario de Pago' }); -%>
+<%- include('layouts/navbar'); -%>
   <section class="hero is-info mt-6">
     <div class="hero-body">
       <p class="title has-text-primary-100 is-uppercase">Formulario de Pago</p>
@@ -34,7 +35,7 @@
                   <div class="columns">
                     <div class="column is-one-quarter">
                       <div class="field">
-                        <label class="label">Nombre del Titular:* </label>
+                        <label class="label">Nombre del Titular: </label>
                         <div class="control has-icons-left">
                           <input class="input is-success" type="text" name="nombre_titular" id="nombre_titular">
                           <span class="icon is-small is-left">
@@ -46,7 +47,7 @@
                     </div>
                     <div class="column is-two-fifths">
                       <div class="field">
-                        <label class="label">Email</label>
+                        <label class="label">Correo Electronico:</label>
                         <div class="control has-icons-left">
                           <input class="input is-danger" type="email" placeholder="Email" name="email" id="email">
                           <span class="icon is-small is-left">
@@ -61,7 +62,7 @@
                   <div class="columns">
                     <div class="column is-one-quarter">
                       <div class="field">
-                        <label class="label">Numero de tarjeta:* </label>
+                        <label class="label">Numero de tarjeta: </label>
                         <div class="control has-icons-left">
                           <input class="input is-success" type="text" name="numero_tarjeta" id="numero_tarjeta">
                           <span class="icon is-small is-left">
@@ -74,7 +75,7 @@
 
                     <div class="column is-one-fifth">
                       <div class="field">
-                        <label class="label">Mes:* </label>
+                        <label class="label">Mes de Caducidad: </label>
                         <div class="control has-icons-left">
                           <input class="input is-success" type="number" min="1" max="12" name="month" id="month">
                           <span class="icon is-small is-left">
@@ -86,7 +87,7 @@
                     </div>
                     <div class="column is-one-fifth">
                       <div class="field">
-                        <label class="label">Año:* </label>
+                        <label class="label">Año de Caducidad: </label>
                         <div class="control has-icons-left">
                           <input class="input is-success" type="number" name="year" id="year">
                           <span class="icon is-small is-left">
@@ -100,7 +101,7 @@
                   <div class="columns">
                     <div class="column is-one-fifth">
                       <div class="field">
-                        <label class="label">Codigo de Seguridad CVV: </label>
+                        <label class="label">Código (CVV/CVC): </label>
                         <div class="control has-icons-left">
                           <input class="input is-success" type="text" name="codigo_seguridad" id="codigo_seguridad">
                           <span class="icon is-small is-left">
@@ -112,7 +113,7 @@
                     </div>
                     <div class="column is-one-quarter">
                       <div class="field">
-                        <label class="label">Monto a pagar:* </label>
+                        <label class="label">Monto a pagar: </label>
                         <div class="control has-icons-left">
                           <input class="input is-success" type="numbre" step="0.01" min="0.00" name="monto" id="monto">
                           <span class="icon is-small is-left">

@@ -1,8 +1,9 @@
 <%- include('../layouts/header', {titulopage: 'Panel Administrador' }); -%>
-  
-  <div class="container box mt-6 mb-4">
-    
-    <table class="table">
+<%- include('../layouts/navbar-admin.ejs'); -%>
+<section class="section mt-6 mb-4">
+  <h2 class="title is-2">Listado de Contactos</h2>
+  <div class="content is-normal">
+  <table id="tabla" class="table">
       <thead>
         <tr>
           <th><abbr title="Position">ID</abbr></th>
@@ -28,7 +29,7 @@
         <% }); %>
       </tbody>
     </table>
-    
   </div>
+</section>
 
   <%- include('../layouts/footer'); -%>

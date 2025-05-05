@@ -3,20 +3,14 @@ import paymentModel from '../models/paymentModel';
 import { validationResult } from 'express-validator';
 
 
-class ContactsController {
+class paymentController {
 
-  async indexContactos(_req: Request, res: Response) {
-    const contactos = await paymentModel.findAll();
-    res.render('admin/listpagos', { contactos });
+  async indexPagos(_req: Request, res: Response) {
+    const pagos = await paymentModel.findAll();
+    res.render('admin/listpagos', { pagos });
   }
-
-  async getContacts(_req: Request, res: Response) {
-    const contacts = await paymentModel.findAll();
-    res.json(contacts);
-  }
-
+  
   async addPayment(req: Request, res: Response) {
-    
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
         const valores = req.body
@@ -34,4 +28,4 @@ class ContactsController {
   }
 }
 
-export default new ContactsController();
+export default new paymentController();
