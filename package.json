@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/app.js",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "migrate": "sequelize db:migrate"
   },
   "repository": {
     "type": "git",
