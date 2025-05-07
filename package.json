@@ -5,7 +5,7 @@
   "main": "dist/app.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "node dist/app.js",
+    "start": "nodemon",
     "dev": "nodemon",
     "migrate": "sequelize db:migrate"
   },
