@@ -9,23 +9,28 @@ import contactsRoute from './routes/contactsRoute';
 import routeAdmin from "./routes/admin";
 import routePayment from "./routes/paymentRoute";
 
-import dotenv from 'dotenv'; 
+import dotenv from 'dotenv';
 import { join } from "path";
 
 dotenv.config();
 
 const app = express();
+const MemoryStore = require('memorystore')(session)
 
 app.use(cors());
 const port = process.env.SERVER_PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(join(__dirname +"/public")));
+app.use(express.static(join(__dirname + "/public")));
 app.set('views', join(__dirname + '/views'));
-app.set("view engine","ejs");
+app.set("view engine", "ejs");
 
 app.use(session({
+  cookie: { maxAge: 86400000 },
+  store: new MemoryStore({
+    checkPeriod: 86400000 // prune expired entries every 24h
+  }),
   secret: 'secreto',
   resave: false,
   saveUninitialized: true
