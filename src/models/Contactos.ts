@@ -26,8 +26,7 @@ Contactos.init(
       allowNull: false,
       validate: {
         isEmail: true,
-      },
-      unique:true
+      }
     },
     comentario: {
       type: DataTypes.STRING,
