@@ -5,9 +5,9 @@
   "main": "app.ts",
   "scripts": {
     "build": "npx tsc",
-    "start": "node src/app.ts",
+    "start": "nodemon src/app.ts",
     "dev": "nodemon",
-    "migrate": "sequelize db:migrate"
+    "migrate": "npx sequelize-cli db:migrate"
   },
   "repository": {
     "type": "git",
