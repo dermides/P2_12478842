@@ -2,10 +2,10 @@
   "name": "p2_12478842",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/app.js",
+  "main": "app.ts",
   "scripts": {
     "build": "npx tsc",
-    "start": "nodemon",
+    "start": "node src/app.ts",
     "dev": "nodemon",
     "migrate": "sequelize db:migrate"
   },
