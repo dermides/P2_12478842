@@ -37,18 +37,18 @@ Contactos.init(
       allowNull: false,
       validate: {
         isIP: true,
-      },
+      }
     },
-    fecha_at: {
+    /*fecha_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
-    },
+    },*/
   },
   {
     sequelize,
     tableName: 'contactos',
-    timestamps: false,
+    timestamps: true,
   }
 );
 
