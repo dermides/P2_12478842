@@ -32,6 +32,10 @@ module.exports = {
           isIP: true,
         },
       },
+      pais: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       createdAt: { 
         type: Sequelize.DATE, 
         defaultValue: Sequelize.NOW, 

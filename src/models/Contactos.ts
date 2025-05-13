@@ -39,11 +39,11 @@ Contactos.init(
         isIP: true,
       }
     },
-    /*fecha_at: {
-      type: DataTypes.DATE,
+    pais:{
+      type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },*/
+      
+    }
   },
   {
     sequelize,
