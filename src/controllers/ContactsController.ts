@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import ContactsModel from '../models/ContactsModel';
+import getGeo from './geoController';
 
 const requestIp = require('request-ip')
 
@@ -16,10 +17,11 @@ class ContactsController {
   }
 
   async addContact(req: Request, res: Response) {
-    const ip = requestIp.getClientIp(req); // Obtener la IP del cliente
+    const ip = requestIp.getClientIp(req); // Obtener la IP del cliente y asegurar que sea string
+    const country = await getGeo(ip) || ""; // Obtener el país a partir de la IP
     const { nombre, email, comentario } = req.body;
     //const contact = await ContactsModel.create(nombre, email, comentario, ip);
-    await ContactsModel.create(nombre, email, comentario, ip);
+    await ContactsModel.create(nombre, email, comentario, ip, country);
     //res.json(contact);
     req.flash('success', '¡Contacto guardado exitosamente!');
     res.redirect('/contactos'); // Redirigir a la ruta /contact/add después de agregar el contacto
