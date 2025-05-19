@@ -8,6 +8,7 @@ class Contactos extends Model {
   public comentario!: string;
   public fecha_at!: Date;
   public direccion_ip!: string;
+  public pais!: string;
 }
 
 Contactos.init(
@@ -42,7 +43,6 @@ Contactos.init(
     pais:{
       type: DataTypes.STRING,
       allowNull: false,
-      
     }
   },
   {
