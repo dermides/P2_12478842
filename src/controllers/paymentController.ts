@@ -42,7 +42,7 @@ class paymentController {
 
 async function procesarPago(monto: number, tarjeta: string, cvv: number, mes: string, ano: string) {
     try {
-      const response = await axios.post(`${process.env.PAYMENT_API_URL}`, {
+      const response = await axios.post(`${process.env.PAYMENT_API}/pay`, {
         amount: monto,
         "card-number": tarjeta,
         cvv: cvv,
