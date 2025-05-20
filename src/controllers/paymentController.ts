@@ -10,7 +10,32 @@ class paymentController {
     res.render('admin/listpagos', { pagos });
   }
 
-  async procesarPago(monto: number, tarjeta: string, cvv: number, mes: string, ano: string) {
+  async addPayment(req: Request, res: Response) {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      const valores = req.body
+      const validaciones = errors.array()
+      res.render('home/pagos', { message: req.flash(), validaciones: validaciones, valores: valores })
+    } else {
+      const { nombre_titular, email, numero_tarjeta, month, year, codigo_seguridad, monto, moneda } = req.body;
+      
+      const resultado = await procesarPago(Number(monto), numero_tarjeta, Number(codigo_seguridad), month, year);
+
+      if (resultado) {
+        await paymentModel.create(nombre_titular, email, numero_tarjeta, month, year, codigo_seguridad, monto, moneda);
+        req.flash('success', '¡Pago realizado exitosamente!');
+        res.redirect('/pagos');
+      } else {
+        req.flash('success', '¡Pago no realizado!');
+        res.redirect('/pagos');
+      }
+
+    }
+
+  }
+}
+
+async function procesarPago(monto: number, tarjeta: string, cvv: number, mes: string, ano: string) {
     try {
       const response = await axios.post(`${process.env.PAYMENT_API_URL}/pay`, {
         amount: monto,
@@ -31,29 +56,5 @@ class paymentController {
     }
   }
 
-  async addPayment(req: Request, res: Response) {
-    const errors = validationResult(req)
-    if (!errors.isEmpty()) {
-      const valores = req.body
-      const validaciones = errors.array()
-      res.render('home/pagos', { message: req.flash(), validaciones: validaciones, valores: valores })
-    } else {
-      const { nombre_titular, email, numero_tarjeta, month, year, codigo_seguridad, monto, moneda } = req.body;
-      const resultado = await this.procesarPago(monto, numero_tarjeta, codigo_seguridad, month, year);
 
-      if (resultado) {
-        await paymentModel.create(nombre_titular, email, numero_tarjeta, month, year, codigo_seguridad, monto, moneda);
-        req.flash('success', '¡Pago realizado exitosamente!');
-        res.redirect('/pagos');
-      } else {
-        req.flash('success', '¡Pago no realizado!');
-        res.redirect('/pagos');
-      }
-
-    }
-
-  }
-}
-
-export default new paymentController();
-
+  export default new paymentController();
