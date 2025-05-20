@@ -4,7 +4,7 @@ import paymentController from '../controllers/paymentController';
 
 const router = express.Router();
 
-
+router.get('/payments/:transaction_id', paymentController.indexPagos); 
 router.post('/payment/add', 
     body('nombre_titular').notEmpty().withMessage('El nombre del titular es obligatorio'),
     body('email').isEmail().withMessage('El email no es válido'),
