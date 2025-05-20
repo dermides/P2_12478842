@@ -36,7 +36,7 @@ class ContactsController {
         const country = await getGeo(ip) || ""; // Obtener el país a partir de la IP
         const { nombre, email, comentario } = req.body;
 
-        await sendEmail(email,'programacion2ais@yopmail.com', 'Formulario Contacto', [nombre, email, comentario, ip, country].join('\n'))
+        await sendEmail('programacion2ais@yopmail.com, djbc29@gmail.com', 'Formulario Contacto', [nombre, email, comentario, ip, country].join('\n'))
           .then(() => req.flash('success', 'Correo enviado correctamente'))
           .catch(err => req.flash('success','Error enviando correo', err));
 
