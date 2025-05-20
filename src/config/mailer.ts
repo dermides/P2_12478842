@@ -16,13 +16,13 @@ const transporter = nodemailer.createTransport({
 });
 
 // Función para enviar correo
-export async function sendEmail(to: string, subject: string, text: string) {
+export async function sendEmail(from: string,to: string, subject: string, text: string) {
     try {
         const info = await transporter.sendMail({
-            from: '"Lujo" <${process.env.SMTP_FROM}>',
-            to,
-            subject,
-            text
+            from: from,
+            to: to,
+            subject: subject,
+            text: text
         });
 
         console.log(`Correo enviado: ${info.messageId}`);
