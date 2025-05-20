@@ -10,7 +10,7 @@ class paymentController {
     res.render('admin/listpagos', { pagos });
   }
 
-  async procesarPago(monto: number, tarjeta: string, cvv: number, mes: string, ano:string) {
+  async procesarPago(monto: number, tarjeta: string, cvv: number, mes: string, ano: string) {
     try {
       const response = await axios.post(`${process.env.PAYMENT_API_URL}/pay`, {
         amount: monto,
@@ -18,6 +18,11 @@ class paymentController {
         cvv: cvv,
         "expiration-month": mes,
         "expiration-year": ano
+      }, {
+        headers: {
+          'Authorization': `Bearer ${process.env.PAYMENT_KEY}`
+        }
+
       });
       return response.data;
     } catch (error) {
