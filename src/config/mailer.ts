@@ -1,35 +1,27 @@
-import nodemailer from 'nodemailer';
-import dotenv from 'dotenv';
+import nodemailer from "nodemailer";
+import dotenv from "dotenv";
 
-// Cargar variables de entorno
 dotenv.config();
 
-// Configuración del transporte SMTP
 const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST, // Reemplaza con tu servidor SMTP
-    port: Number(process.env.SMTP_PORT),
-    secure: false, // true para puerto 465, falso para otros
-    auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS
-    }
+  host: process.env.MAIL_HOST,
+  port: parseInt(process.env.MAIL_PORT || "2525"),
+  auth: {
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS,
+  },
 });
 
-// Función para enviar correo
-export async function sendEmail(from: string,to: string, subject: string, text: string) {
-    const mailOptions = {
-        from: from,
-        to: to,
-        subject: subject,
-        text: text
-    };
-
-    console.info(`Sending mail to - ${to}`);
-    transporter.sendMail(mailOptions, (error, info)=> {
-        if (error) {
-            console.error(error);
-        } else {
-            console.info('Email sent: ' + info.response);
-        }
+export async function sendEmail(from: string, to: string, subject: string, text: string) {
+  try {
+    const info = await transporter.sendMail({
+      from,
+      to,
+      subject,
+      text,
     });
+    console.log("Correo enviado:", info.messageId);
+  } catch (error) {
+    console.error("Error enviando correo:", error);
+  }
 }

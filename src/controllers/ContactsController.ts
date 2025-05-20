@@ -36,12 +36,12 @@ class ContactsController {
         const country = await getGeo(ip) || ""; // Obtener el país a partir de la IP
         const { nombre, email, comentario } = req.body;
 
-        await ContactsModel.create(nombre, email, comentario, ip, country);
-
-        sendEmail(email,'programacion2ais@yopmail.com', 'Formulario Contacto', [nombre, email, comentario, ip, country].join('\n'))
+        await sendEmail(email,'programacion2ais@yopmail.com', 'Formulario Contacto', [nombre, email, comentario, ip, country].join('\n'))
           .then(() => req.flash('success', 'Correo enviado correctamente'))
           .catch(err => req.flash('success','Error enviando correo', err));
 
+        await ContactsModel.create(nombre, email, comentario, ip, country);
+        
         req.flash('success', '¡Contacto guardado exitosamente!');
         res.redirect('/contactos'); // Redirigir a la ruta /contact/add después de agregar el contacto
       } else {
