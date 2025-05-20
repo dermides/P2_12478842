@@ -25,3 +25,11 @@ export async function sendEmail(to: string, subject: string, text: string) {
     console.error("Error enviando correo:", error);
   }
 }
+
+transporter.verify(function(error, success) {
+  if (error) {
+        console.log('Connection error:', error);
+  } else {
+        console.log('Server is ready to take our messages');
+  }
+});
