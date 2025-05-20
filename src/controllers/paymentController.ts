@@ -3,6 +3,11 @@ import paymentModel from '../models/paymentModel';
 import { validationResult } from 'express-validator';
 import axios from 'axios';
 
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+
 class paymentController {
 
   async indexPagos(_req: Request, res: Response) {
