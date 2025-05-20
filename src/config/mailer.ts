@@ -26,7 +26,7 @@ export async function sendEmail(to: string, subject: string, text: string) {
   }
 }
 
-transporter.verify(function(error, success) {
+transporter.verify(function(error, _success) {
   if (error) {
         console.log('Connection error:', error);
   } else {
