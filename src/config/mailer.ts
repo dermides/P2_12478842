@@ -1,4 +1,8 @@
 import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
+
+// Cargar variables de entorno
+dotenv.config();
 
 // Configuración del transporte SMTP
 const transporter = nodemailer.createTransport({
@@ -15,7 +19,7 @@ const transporter = nodemailer.createTransport({
 export async function sendEmail(to: string, subject: string, text: string) {
     try {
         const info = await transporter.sendMail({
-            from: '"Lujo" <tiendalujo@lujo.com>',
+            from: '"Lujo" <${process.env.SMTP_FROM}>',
             to,
             subject,
             text
