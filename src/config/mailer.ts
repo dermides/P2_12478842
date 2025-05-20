@@ -2,12 +2,12 @@ import nodemailer from 'nodemailer';
 
 // Configuración del transporte SMTP
 const transporter = nodemailer.createTransport({
-    host: 'sandbox.smtp.mailtrap.io', // Reemplaza con tu servidor SMTP
-    port: 2525,
+    host: process.env.SMTP_HOST, // Reemplaza con tu servidor SMTP
+    port: Number(process.env.SMTP_PORT),
     secure: false, // true para puerto 465, falso para otros
     auth: {
-        user: 'a9f933763eb536',
-        pass: '29fea79f0ad467'
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS
     }
 });
 
