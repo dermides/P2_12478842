@@ -10,7 +10,7 @@ class paymentController {
     res.render('admin/listpagos', { pagos });
   }
 
-  async procesarPago(monto: number, tarjeta: string, cvv: string, mes: string, ano:string) {
+  async procesarPago(monto: number, tarjeta: string, cvv: number, mes: string, ano:string) {
     try {
       const response = await axios.post(`${process.env.PAYMENT_API_URL}/pay`, {
         amount: monto,
