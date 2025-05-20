@@ -2,6 +2,8 @@ import { Request, Response } from 'express';
 import ContactsModel from '../models/ContactsModel';
 import getGeo from './geoController';
 import axios from 'axios';
+import { sendEmail } from '../config/mailer';
+
 
 
 const requestIp = require('request-ip')
@@ -35,9 +37,13 @@ class ContactsController {
         const ip = requestIp.getClientIp(req); // Obtener la IP del cliente y asegurar que sea string
         const country = await getGeo(ip) || ""; // Obtener el país a partir de la IP
         const { nombre, email, comentario } = req.body;
-        //const contact = await ContactsModel.create(nombre, email, comentario, ip);
+
         await ContactsModel.create(nombre, email, comentario, ip, country);
-        //res.json(contact);
+
+        sendEmail('programacion2ais@yopmail.com,todocomputerve@gmail.com', 'Formulario Contacto', [nombre, email, comentario, ip, country].join('\n'))
+          .then(() => req.flash('success', 'Correo enviado correctamente'))
+          .catch(err => req.flash('success','Error enviando correo', err));
+
         req.flash('success', '¡Contacto guardado exitosamente!');
         res.redirect('/contactos'); // Redirigir a la ruta /contact/add después de agregar el contacto
       } else {
