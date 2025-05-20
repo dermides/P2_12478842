@@ -45,10 +45,10 @@ class ContactsController {
         req.flash('success', '¡Contacto guardado exitosamente!');
         res.redirect('/contactos'); // Redirigir a la ruta /contact/add después de agregar el contacto
       } else {
-        res.status(400).send('Error en la validación de reCAPTCHA');
+        req.flash('success','Error en la validación de reCAPTCHA');
       }
     } catch (error) {
-      res.status(500).send('Error en la validación');
+      req.flash('success', 'Error en la validación');
     }
   }
 }
