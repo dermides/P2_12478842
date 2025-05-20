@@ -7,3 +7,4 @@ const router = express.Router();
 router.post('/contact/add', ContactsController.addContact);
 
 export default router;
+
