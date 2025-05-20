@@ -3,6 +3,9 @@ import ContactsModel from '../models/ContactsModel';
 import getGeo from './geoController';
 import axios from 'axios';
 import { sendEmail } from '../config/mailer';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const requestIp = require('request-ip')
 
