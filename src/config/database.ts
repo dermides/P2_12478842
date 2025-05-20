@@ -6,8 +6,6 @@ const sequelize = new Sequelize({
   storage: './db/database.db',
   
   dialectOptions: {
-    "useUTC": false,
-    timezone: 'America/La_Paz',
     mode: SQLite.OPEN_READWRITE | SQLite.OPEN_CREATE | SQLite.OPEN_FULLMUTEX,
   },
 });
