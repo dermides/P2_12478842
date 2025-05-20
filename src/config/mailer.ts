@@ -28,8 +28,8 @@ export async function sendEmail(to: string, subject: string, text: string) {
 
 transporter.verify(function(error, _success) {
   if (error) {
-        console.log('Connection error:', error);
+        console.log('Error de conexion en servidor:', error);
   } else {
-        console.log('Server is ready to take our messages');
+        console.log('El servidor está listo para recibir nuestros mensajes.');
   }
 });
