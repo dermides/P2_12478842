@@ -14,7 +14,7 @@ import { join } from "path";
 
 dotenv.config();
 
-process.env.TZ = 'America/Caracas';
+process.env.TZ;
 
 const app = express();
 const MemoryStore = require('memorystore')(session)
