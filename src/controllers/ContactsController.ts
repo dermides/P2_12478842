@@ -20,7 +20,7 @@ class ContactsController {
 
   async addContact(req: Request, res: Response) {
     const recaptchaToken = req.body.recaptchaResponse;
-    const secretKey = '6LeGm0ErAAAAAI-y5O-bZMJp8roN-VeMwVZQEB4j';
+    const secretKey = process.env.API_KEY;
 
     try {
       const response = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, null, {
