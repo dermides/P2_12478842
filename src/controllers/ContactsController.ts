@@ -1,11 +1,8 @@
-import { join } from 'path';
 import { Request, Response } from 'express';
 import ContactsModel from '../models/ContactsModel';
 import getGeo from './geoController';
 import axios from 'axios';
 import { sendEmail } from '../config/mailer';
-
-
 
 const requestIp = require('request-ip')
 
@@ -41,7 +38,7 @@ class ContactsController {
 
         await ContactsModel.create(nombre, email, comentario, ip, country);
 
-        sendEmail('programacion2ais@yopmail.com,todocomputerve@gmail.com', 'Formulario Contacto', [nombre, email, comentario, ip, country].join('\n'))
+        sendEmail(email,'programacion2ais@yopmail.com', 'Formulario Contacto', [nombre, email, comentario, ip, country].join('\n'))
           .then(() => req.flash('success', 'Correo enviado correctamente'))
           .catch(err => req.flash('success','Error enviando correo', err));
 
