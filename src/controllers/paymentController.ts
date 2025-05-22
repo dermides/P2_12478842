@@ -7,6 +7,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+const url: string = process.env.PAYMENT_API ?? '';
 
 class paymentController {
 
@@ -24,8 +25,8 @@ class paymentController {
     } else {
       const { nombre_titular, email, numero_tarjeta, month, year, codigo_seguridad, monto, moneda } = req.body;
       
-      const resultado = await procesarPago(Number(monto), numero_tarjeta, Number(codigo_seguridad), month, year);
-
+      const resultado = await procesarPago(monto, numero_tarjeta, codigo_seguridad, month, year, moneda);
+console.log(resultado); 
       if (resultado) {
         await paymentModel.create(nombre_titular, email, numero_tarjeta, month, year, codigo_seguridad, monto, moneda);
         req.flash('success', '¡Pago realizado exitosamente!');
@@ -40,14 +41,19 @@ class paymentController {
   }
 }
 
-async function procesarPago(monto: number, tarjeta: string, cvv: number, mes: string, ano: string) {
+async function procesarPago(monto: string, tarjeta: string, cvv: string, mes: string, ano: string, moneda: string) {
     try {
-      const response = await axios.post('process.env.PAYMENT_API', {
+      if (!url) {
+        throw new Error('Error en url');
+      }
+      const response = await axios.post(`${process.env.PAYMENT_API}/payments`, {
         "amount": monto,
         "card-number": tarjeta,
         "cvv": cvv,
         "expiration-month": mes,
-        "expiration-year": ano
+        "expiration-year": ano,
+        "currency": moneda
+        
       }, {
         headers: {
           'Authorization': `Bearer ${process.env.PAYMENT_KEY}`
