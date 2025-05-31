@@ -26,7 +26,7 @@ class paymentController {
       const { nombre_titular, email, numero_tarjeta, month, year, codigo_seguridad, monto, moneda } = req.body;
       
       const resultado = await procesarPago(monto, numero_tarjeta, codigo_seguridad, month, year, moneda);
-console.log(resultado); 
+console.log(resultado);  
       if (resultado) {
         await paymentModel.create(nombre_titular, email, numero_tarjeta, month, year, codigo_seguridad, monto, moneda);
         req.flash('success', '¡Pago realizado exitosamente!');
