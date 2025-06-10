@@ -1,14 +1,11 @@
-import { Router} from "express";
-import { 
-    renderRegistro,
-    renderLogin
-} from "../controllers/authController";
+import express from 'express';
+import authController from '../controllers/authController';
 
-const routeAuth = Router();
+const router = express.Router();
 
 //routeHome.get("/", renderHome);
 
-routeAuth.get("/registro", renderRegistro);
-routeAuth.get("/login", renderLogin);
+router.get("auth/registro", authController.userRegistro);
+//routeAuth.get("admin/login");
 
-export default routeAuth;
+export default router;

@@ -1,9 +1,48 @@
-<%- include('../layouts/header', {titulopage: 'Panel Administrador' }); -%>
-<%- include('../layouts/navbar-admin.ejs'); -%>
-<section class="section mt-6 mb-4">
-  <h2 class="title is-2">Listado de Contactos</h2>
-  <div class="content is-normal">
-  <table id="tabla" class="table">
+<%- include('../layouts/admin', {titulopage: 'Panel Administrador' }); -%>
+<%- include('../layouts/nav-admin'); -%>
+<section class="section is-title-bar">
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <ul>
+            <li>Admin</li>
+            <li>Dashboard</li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+</section>
+<section class="hero is-hero-bar">
+    <div class="hero-body">
+      <div class="level">
+        <div class="level-left">
+          <div class="level-item"><h1 class="title">
+            Listado de Clientes
+          </h1></div>
+        </div>
+        <div class="level-right" style="display: none;">
+          <div class="level-item"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="section is-main-section">
+  <div class="card has-table">
+      <header class="card-header">
+        <p class="card-header-title">
+          <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
+          Clientes  
+</p>
+        <a href="#" class="card-header-icon">
+          <span class="icon"><i class="mdi mdi-reload"></i></span>
+        </a>
+      </header>
+      <div class="card-content">
+        <div class="b-table has-pagination">
+          <div class="table-wrapper has-mobile-cards">
+            <table id="tabla" class="table is-fullwidth is-striped is-hoverable is-fullwidth">
+  
       <thead>
         <tr>
           <th><abbr title="Position">ID</abbr></th>
@@ -30,8 +69,12 @@
         </tr>
         <% }); %>
       </tbody>
-    </table>
+            </table>
+          </div>
+        </div>
+      </div>
   </div>
+
 </section>
 
-  <%- include('../layouts/footer'); -%>
+  <%- include('../layouts/footer-admin'); -%>
