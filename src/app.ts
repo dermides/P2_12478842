@@ -2,7 +2,6 @@ import express from "express";
 import cors from "cors";
 import session from 'express-session';
 import flash from 'connect-flash';
-//import passport from 'passport';
 
 import routeHome from "./routes/home";
 import contactsRoute from './routes/contactsRoute';
@@ -12,7 +11,8 @@ import routeAuth from "./routes/auth";
 
 import dotenv from 'dotenv';
 import { join } from "path";
-//import Users from "./models/Users";
+import passport from "passport";
+
 
 dotenv.config();
 
@@ -50,17 +50,9 @@ app.use(session({
 
 }));
 
-// Autenticacion Google
+app.use(passport.initialize());
+app.use(passport.session());
 
-/*passport.use(new GoogleStrategy({
-    clientID: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/admin/"
-  },
-  function(_accessToken, _refreshToken, profile, cb) {
-    console.log(profile);
-    Users.findOrCreate({ googleId: profile.id }, {username: profile.displayName});
- });*/
 
 // Configuración de flash messages
 
