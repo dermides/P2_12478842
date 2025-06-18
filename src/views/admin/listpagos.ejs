@@ -1,0 +1,35 @@
+<%- include('../layouts/header', {titulopage: 'Panel Administrador' }); -%>
+<%- include('../layouts/navbar-admin.ejs'); -%>
+  <section class="section mt-6 mb-4">
+    <h2 class="title is-2">Listado de Pagos</h2>
+    <div class="content is-normal">
+    <table id="tabla" class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre Titular</th>
+          <th>Email</th>
+          <th>Monto Pagado</th>
+          <th>Moneda</th>
+          <th>Fecha de Pago</th>
+          
+        </tr>
+      </thead>
+      
+      <tbody>
+        <% pagos.forEach(function(pago){ %>
+        <tr>
+          <th><%= pago.id %></th>
+          <td><%= pago.nombre_titular %></td>
+          <td><%= pago.email %></td>         
+          <td><%= pago.monto %></td>
+          <td><%= pago.moneda %></td>
+          <td><%= pago.createdAt.toLocaleDateString() %></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+<%- include('../layouts/footer'); -%>

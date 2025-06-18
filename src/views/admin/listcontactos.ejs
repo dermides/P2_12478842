@@ -1,0 +1,96 @@
+<%- include('../layouts/admin', {titulopage: 'Panel Administrador' }); -%>
+<%- include('../layouts/nav-admin'); -%>
+    <section class="section is-title-bar">
+      <div class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <ul>
+              <li>Admin</li>
+              <li>Dashboard</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section class="hero is-hero-bar">
+      <div class="hero-body">
+        <div class="level">
+          <div class="level-left">
+            <div class="level-item">
+              <h1 class="title">
+                Listado de Clientes
+              </h1>
+            </div>
+          </div>
+          <div class="level-right" style="display: none;">
+            <div class="level-item"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section is-main-section">
+      <div class="card has-table">
+        <header class="card-header">
+          <p class="card-header-title">
+            <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
+            Clientes
+          </p>
+          <a href="#" class="card-header-icon">
+            <span class="icon"><i class="mdi mdi-reload"></i></span>
+          </a>
+        </header>
+        <div class="card-content">
+          <div class="b-table has-pagination">
+            <div class="table-wrapper has-mobile-cards">
+              <table id="tabla" class="table is-fullwidth is-striped is-hoverable is-fullwidth">
+
+                <thead>
+                  <tr>
+                    <th><abbr title="Position">ID</abbr></th>
+                    <th>Nombre</th>
+                    <th><abbr title="Played">Email</abbr></th>
+                    <th><abbr title="Won">Comentario</abbr></th>
+                    <th><abbr title="Drawn">IP</abbr></th>
+                    <th><abbr title="Drawn">Pais</abbr></th>
+                    <th><abbr title="Lost">Fecha</abbr></th>
+
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% contactos.forEach(function(contacto){ %>
+                    <tr>
+                      <th>
+                        <%= contacto.id %>
+                      </th>
+                      <td>
+                        <%= contacto.nombre %>
+                      </td>
+                      <td>
+                        <%= contacto.email %>
+                      </td>
+                      <td>
+                        <%= contacto.comentario %>
+                      </td>
+                      <td>
+                        <%= contacto.direccion_ip %>
+                      </td>
+                      <td>
+                        <%= contacto.pais %>
+                      </td>
+                      <td>
+                        <%= contacto.createdAt.toLocaleDateString("es-ES") %>
+                      </td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+<%- include('../layouts/footer-admin'); -%>

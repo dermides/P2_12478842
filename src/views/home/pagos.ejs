@@ -1,0 +1,157 @@
+<%- include('../layouts/header', {titulopage: 'Formulario de Pago' }); -%>
+<%- include('../layouts/navbar'); -%>
+  <section class="hero is-info mt-6">
+    <div class="hero-body">
+      <p class="title has-text-primary-100 is-uppercase">Formulario de Pago</p>
+      <p class="subtitle has-text-primary-100">Realice su pago para recivir su compra</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <% if(typeof validaciones !='undefined' ) { %>
+      <% validaciones.forEach( (validacion)=> { %>
+        <div class="notification is-danger">
+          <strong>
+            <%= validacion.msg %>
+          </strong>
+        </div>
+        <% }) %>
+          <% } %>
+
+            <% if (message.success) { %>
+              <div class="notification is-success is-light">
+                <button class="delete"></button>
+                <% if (message.success) { %>
+                  <h1><strong>
+                      <%= message.success %>
+                    </strong></h1>
+                  <% } %>
+              </div>
+              <% } %>
+
+                <form class="box" action="/payment/add" method="POST">
+
+                  <h2 class="title is-4">Informacion de Pago</h2>
+                  <div class="columns">
+                    <div class="column is-one-quarter">
+                      <div class="field">
+                        <label class="label">Nombre del Titular: </label>
+                        <div class="control has-icons-left">
+                          <input class="input is-success" type="text" name="nombre_titular" id="nombre_titular">
+                          <span class="icon is-small is-left">
+                            <i class='bx bxs-user-badge'></i>
+                          </span>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="column is-two-fifths">
+                      <div class="field">
+                        <label class="label">Correo Electronico:</label>
+                        <div class="control has-icons-left">
+                          <input class="input is-danger" type="email" placeholder="Email" name="email" id="email">
+                          <span class="icon is-small is-left">
+                            <i class='bx bxs-envelope'></i>
+                          </span>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="columns">
+                    <div class="column is-one-quarter">
+                      <div class="field">
+                        <label class="label">Numero de tarjeta: </label>
+                        <div class="control has-icons-left">
+                          <input class="input is-success" type="text" name="numero_tarjeta" id="numero_tarjeta">
+                          <span class="icon is-small is-left">
+                            <i class='bx bxs-credit-card-alt'></i>
+                          </span>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="column is-one-fifth">
+                      <div class="field">
+                        <label class="label">Mes de Caducidad: </label>
+                        <div class="control has-icons-left">
+                          <input class="input is-success" type="number" min="1" max="12" name="month" id="month">
+                          <span class="icon is-small is-left">
+                            <i class='bx bxs-calendar'></i>
+                          </span>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="column is-one-fifth">
+                      <div class="field">
+                        <label class="label">Año de Caducidad: </label>
+                        <div class="control has-icons-left">
+                          <input class="input is-success" type="number" name="year" id="year">
+                          <span class="icon is-small is-left">
+                            <i class='bx bxs-calendar'></i>
+                          </span>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="columns">
+                    <div class="column is-one-fifth">
+                      <div class="field">
+                        <label class="label">Código (CVV/CVC): </label>
+                        <div class="control has-icons-left">
+                          <input class="input is-success" type="text" name="codigo_seguridad" id="codigo_seguridad">
+                          <span class="icon is-small is-left">
+                            <i class='bx bxs-lock-open-alt'></i>
+                          </span>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="column is-one-quarter">
+                      <div class="field">
+                        <label class="label">Monto a pagar: </label>
+                        <div class="control has-icons-left">
+                          <input class="input is-success" type="numbre" step="0.01" min="0.00" name="monto" id="monto">
+                          <span class="icon is-small is-left">
+                            <i class='bx bx-money'></i>
+                          </span>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="column is-one-quarter">
+                      <div class="field">
+                        <label class="label">Moneda:</label>
+                        <div class="control">
+                          <div class="select">
+                            <select name="moneda" id="moneda">
+                              <option value="">Seleccione una opcion</option>
+                              <option value="BS">Bolivares Bs</option>
+                              <option value="USD">Dollar $</option>
+                              <option value="EURO">Euro €</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-grouped">
+                    <div class="control">
+                      <button class="button is-link">Pagar</button>
+                    </div>
+                    <div class="control">
+                      <a href="/" class="button is-link is-light">Cancelar</a>
+                    </div>
+                  </div>
+                  </div>
+                </form>
+
+
+
+  </section>
+
+  <%- include('../layouts/footer'); -%>

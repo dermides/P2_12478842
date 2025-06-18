@@ -1,0 +1,63 @@
+<footer class="footer has-background-white-grey is-mobile is-desktop">
+  <div class="content has-text-centered">
+    <div class="row">
+      <a href="https://www.facebook.com" target="_blank" class="col-2">
+        <i class='bx bxl-facebook-circle bx-sm' style='color:#143060'></i>
+      </a>
+      <a href="https://www.instagram.com" target="_blank" class="col-2">
+        <i class='bx bxl-instagram bx-sm' style='color:#cb2b1f'></i>
+      </a>
+
+      <a href="https://www.youtube.com/" target="_blank" class="col-2">
+
+        <i class='bx bxl-youtube bx-sm' style='color:#490803'></i>
+      </a>
+      <a href="https://x.com/" target="_blank" class="col-2">
+        <i class='bx bxl-twitter bx-sm' style='color:#060606'></i>
+      </a>
+      <a href="https://wa.me/+584128964071" target="_blank" class="col-2">
+        <i class='bx bxl-whatsapp bx-sm' style='color:#32b711'></i>
+      </a>
+
+    </div>
+    <p>
+      <strong>Realizado</strong> por <a href="#">Dermides Blanco</a>.
+      Licencia de comercializacion
+      <a href="#"">Privada</a>. Todos los derechos reservados
+        <a href=" #">Version 1.0</a>.
+    </p>
+  </div>
+</footer>
+
+
+<script src="/assets/js/jquery-3.7.1.min.js"></script>
+<script src="/assets/js/navbarMenu.js"></script>
+<script src="/assets/plugins/datatables/datatables.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+    const $notification = $delete.parentNode;
+
+    $delete.addEventListener('click', () => {
+      $notification.parentNode.removeChild($notification);
+    });
+  });
+});
+</script>
+
+<script>
+  $('#tabla').DataTable({
+    language: {
+        url: 'https://cdn.datatables.net/plug-ins/2.3.0/i18n/es-ES.json',
+    },
+  });
+</script>
+
+
+
+
+
+</body>
+
+</html>

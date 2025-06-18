@@ -1,0 +1,97 @@
+<%- include('../layouts/admin', {titulopage: 'Panel Administrador' }); -%>
+<%- include('../layouts/nav-admin'); -%>
+    <section class="section is-title-bar">
+      <div class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <ul>
+              <li>Usuarios</li>
+              <li>Registrar</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section class="hero is-hero-bar">
+      <div class="hero-body">
+        <div class="level">
+          <div class="level-left">
+            <div class="level-item">
+              <h1 class="title">
+                Registro de Usuario
+              </h1>
+            </div>
+          </div>
+          <div class="level-right" style="display: none;">
+            <div class="level-item"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section is-main-section">
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            <span class="icon"><i class="mdi mdi-ballot"></i></span>
+            Registro
+          </p>
+        </header>
+        <div class="card-content">
+          
+
+    <form class="box" action="/admin/registro/add" method="POST">
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">Usuario</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control is-expanded has-icons-left">
+                    <input class="input" name="username" type="text" placeholder="e.j Pedro Perez">
+                    <span class="icon is-small is-left"><i class="mdi mdi-account"></i></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">Password</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control is-expanded has-icons-left">
+                    <input class="input" name="password_hash" type="password" placeholder="Password">
+                    <span class="icon is-small is-left"><i class="mdi mdi-account"></i></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <!-- Left empty for spacing -->
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="field is-grouped">
+                    <div class="control">
+                      <button type="submit" class="button is-primary">
+                        <span>Guardar</span>
+                      </button>
+                    </div>
+                    <div class="control">
+                      <button type="button" class="button is-primary is-outlined">
+                        <span>Cancelar</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </section>
+<%- include('../layouts/footer-admin'); -%>

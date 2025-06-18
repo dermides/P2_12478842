@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:title" content="Bienvenido a Lujo" />
+    <meta property="og:description" content="Tienda de ropa de alquiler" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/assets/img/favicon.ico">
+    <title><%= titulopage %></title>
+
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/assets/plugins/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="/assets/plugins/boxicons/css/boxicons.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/plugins/datatables/datatables.min.css">
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeGm0ErAAAAAFDBgyeZqOhw7Cg_7QVU3cbUrxoT"></script>
+    <script>
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6LeGm0ErAAAAAFDBgyeZqOhw7Cg_7QVU3cbUrxoT', { action: 'submit' }).then(function (token) {
+                document.getElementById('recaptchaResponse').value = token;
+            });
+        });
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8N492X39JK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-8N492X39JK');
+    </script>
+
+</head>
+
+<body class="is-one-third-desktop is-one-third-tablet is-full-mobile has-background-light">
