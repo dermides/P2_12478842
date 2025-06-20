@@ -4,6 +4,7 @@ import getGeo from './geoController';
 import axios from 'axios';
 import { sendEmail } from '../config/mailer';
 import dotenv from 'dotenv';
+import passport from 'passport';
 
 dotenv.config();
 
@@ -12,6 +13,10 @@ const requestIp = require('request-ip')
 class ContactsController {
 
   async indexContactos(_req: Request, res: Response) {
+    if (!_req.session.userId || passport.authenticate('google', { failureRedirect: '/admin/login' })) {
+      return res.redirect('/admin/login');
+    }
+
     const contactos = await ContactsModel.findAll();
     res.render('admin/listcontactos', { contactos });
   }

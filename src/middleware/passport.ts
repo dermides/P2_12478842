@@ -6,3 +6,10 @@ export function isAuthenticated(req: Request, res: Response, next: NextFunction)
   }
   res.redirect('/admin/login');
 }
+
+export function isNotAuthenticated(req: Request, res: Response, next: NextFunction) {
+  if (!req.session || !req.session.userId) {
+    return next();
+  }
+  res.redirect('/admin');
+}

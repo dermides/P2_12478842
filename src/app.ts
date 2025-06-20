@@ -2,12 +2,14 @@ import express from "express";
 import cors from "cors";
 import session from 'express-session';
 import flash from 'connect-flash';
+import "./auth/google";
 
 import routeHome from "./routes/home";
 import contactsRoute from './routes/contactsRoute';
 import routeAdmin from "./routes/admin";
 import routePayment from "./routes/paymentRoute";
 import routeAuth from "./routes/auth";
+
 
 import dotenv from 'dotenv';
 import { join } from "path";
@@ -38,7 +40,7 @@ declare module 'express-session' {
 }
 
 app.use(session({
-  secret: process.env.SESSION_SECRET || '4561ults53r5tk5y',
+  secret: process.env.SESSION_SECRET!,
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -67,7 +69,12 @@ app.use(routeHome); // Importar las rutas de home.ts
 app.use(contactsRoute); // Importar las rutas de contactsRoutes.ts
 app.use(routeAdmin); // Importar las rutas de admin.ts
 app.use(routePayment); // Importar las rutas de paymentRoute.ts
-app.use(routeAuth);
+app.use(routeAuth);  // Importar las rutas de auth.ts
+
+app.get("/auth/google", passport.authenticate("google", { scope: ["profile","email"] }));
+app.get("/auth/google/credencial", passport.authenticate("google", {
+    failureRedirect: "/admin/login",
+}), (_req, res) => res.render("admin/panel"));
 
 
 app.use((_req, res) => {

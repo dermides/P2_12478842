@@ -13,18 +13,6 @@ class UsersModel {
     return await Users.create({ username, password_hash: hashedPassword});
   }
   
-  /*async register(req: Request, res: Response) {
-    const { username, password_hash } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    try {
-      const newUser = await Users.create({ username, password: hashedPassword });
-      res.status(201).json({ message: "Usuario registrado", user: newUser });
-    } catch (error) {
-      res.status(400).json({ error: "Error al registrar usuario" });
-    }
-  }*/
-
   async login(req: any, res: any) {
     const { username, password } = req.body;
     const user = await Users.findOne({ where: { username } });
@@ -36,6 +24,27 @@ class UsersModel {
     req.session.userId = user.id;
     return res.json({ message: "Inicio de sesión exitoso" });
   }
+
+  async findById(id: number) {
+    return await Users.findByPk(id);
+  }
+
+  async findByEmail(email: string) {
+    return await Users.findOne({ where: { correo: email } });
+  }
+
+  async findByGoogleId(googleId: string) {
+    return await Users.findOne({ where: { googleId } });
+  }
+
+  async createGoogleUser(profile: any) {
+    return await Users.create({
+      googleId: profile.id,
+      nombre: profile.displayName,
+      correo: profile.emails?.[0].value,
+    });
+  }
+
 }
 
 export default new UsersModel();

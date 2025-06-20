@@ -43,6 +43,8 @@
         <div class="card-content">
           <div class="b-table has-pagination">
             <div class="table-wrapper has-mobile-cards">
+              <input type="text" id="searchInput" placeholder="Buscar por nombre o email">
+
               <table id="tabla" class="table is-fullwidth is-striped is-hoverable is-fullwidth">
 
                 <thead>
@@ -92,5 +94,16 @@
       </div>
 
     </section>
+
+    <script>
+  document.getElementById('searchInput').addEventListener('input', function () {
+    const filtro = this.value.toLowerCase();
+    document.querySelectorAll('#contactsTable tr').forEach(row => {
+      const nombre = row.children[0].textContent.toLowerCase();
+      const email = row.children[1].textContent.toLowerCase();
+      row.style.display = (nombre.includes(filtro) || email.includes(filtro)) ? '' : 'none';
+    });
+  });
+</script>
 
 <%- include('../layouts/footer-admin'); -%>

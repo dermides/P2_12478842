@@ -9,6 +9,16 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
+      googleId: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        unique: true,
+      },
+      correo: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        unique: true,
+      },
       username: {
         type: Sequelize.STRING,
         allowNull: false,

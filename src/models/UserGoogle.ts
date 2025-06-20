@@ -3,9 +3,11 @@ import sequelize from '../config/database';
 
 class Users extends Model {
   public id!: number;
+  public googleId!: string;
+  public correo!: string;
   public username!: string;
-  public password_hash!: string;
-
+  public readonly password_hash?: string; // Optional, if you don't want to store password_hash
+  
 }
 
 Users.init(
@@ -17,14 +19,25 @@ Users.init(
     },
     username: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false, 
+    },
+    googleId: {
+      type: DataTypes.STRING,
       unique: true,
+      allowNull: false,
+    },
+    correo: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: true,
+      },
     },
     password_hash: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-
+    
   },
   {
     sequelize,
