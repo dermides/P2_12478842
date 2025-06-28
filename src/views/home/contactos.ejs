@@ -1,9 +1,9 @@
-<%- include('../layouts/header', {titulopage: 'Contacto' }); -%>
+<%- include('../layouts/header', {titulopage: __('contact') }); -%>
 <%- include('../layouts/navbar'); -%>
   <section class="hero is-medium has-background-text-45 mt-6">
     <div class="hero-body">
-      <p class="title has-text-primary-100 has-text-centered is-uppercase">Contactanos</p>
-      <p class="subtitle has-text-primary-100 has-text-centered">Envianos un mensaje</p>
+      <p class="title has-text-primary-100 has-text-centered is-uppercase"><%= __('contact') %></p>
+      <p class="subtitle has-text-primary-100 has-text-centered"><%= __('contact_subtitle') %></p>
     </div>
   </section>
 
@@ -22,14 +22,14 @@
     <form class="box" action="/contact/add" method="POST">
       <input type="hidden" name="recaptchaResponse" id="recaptchaResponse">
           <div class="field">
-            <label class="label">Nombre Apellido</label>
+            <label class="label"><%= __('name_surname') %></label>
             <div class="control">
               <input class="input" type="text" name="nombre" id="nombre" placeholder="e.j Pedro Perez" required>
             </div>
           </div>
 
           <div class="field">
-            <label class="label">Correo Electronico</label>
+            <label class="label"><%= __('email') %></label>
             <div class="control has-icons-left">
               <input class="input is-danger" type="email" name="email" id="email" placeholder="e.j pedroperez@micorreo.com" required>
               <span class="icon is-small is-left">
@@ -41,19 +41,19 @@
           </div>
 
           <div class="field">
-            <label class="label">Comentario</label>
+            <label class="label"><%= __('comment') %></label>
             <div class="control">
               <textarea class="textarea" name="comentario" id="comentario"
-                placeholder="e.j Quiero mas informacion..." required></textarea>
+                required></textarea>
             </div>
           </div>
 
           <div class="field is-grouped">
             <div class="control">
-              <button class="button is-link">Enviar</button>
+              <button class="button is-link"><%= __('send') %></button>
             </div>
             <div class="control">
-              <button class="button is-link is-light">Cancelar</button>
+              <button class="button is-link is-light"><%= __('cancel') %></button>
             </div>
           </div>
     </form>

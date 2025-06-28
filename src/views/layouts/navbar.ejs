@@ -1,72 +1,83 @@
 <nav class="navbar is-fixed-top has-shadow" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="/">
-        <img src="/assets/img/corbata_logo.png" style="max-height: 40px" class="py-2 px-2"></img>
-        LUJO
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img src="/assets/img/corbata_logo.png" style="max-height: 40px" class="py-2 px-2"></img>
+      LUJO
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navMenu" class="navbar-menu">
+    <div class="navbar-start">
+      <a href="/" class="navbar-item">
+        <%= __('home') %>
       </a>
-  
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-  
-    <div id="navMenu" class="navbar-menu">
-      <div class="navbar-start">
-        <a href="/" class="navbar-item">
-          Home
-        </a>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            Alquiler
-          </a>
-  
-          <div class="navbar-dropdown">
-            <a class="navbar-item">
-              Niños
-            </a>
-            <a class="navbar-item">
-              Caballeros
-            </a>
-            <a class="navbar-item">
-              Mujeres
-            </a>
-            <a class="navbar-item">
-              Zapatos
-            </a>
-          </div>
-        </div>
-
-        <a href="/beneficios" class="navbar-item">
-          Beneficios
-        </a>
-        <a href="/ventajas" class="navbar-item">
-          Ventajas
-        </a>
-
-        <a href="/nosotros" class="navbar-item">
-          Nosotros
-        </a>
-
-        <a href="/contactos" class="navbar-item">
-          Contactanos
-        </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
         
+          <%= __('rent') %>
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            <%= __('children') %>
+          </a>
+          <a class="navbar-item">
+            <%= __('gentlemen') %>
+          </a>
+          <a class="navbar-item">
+            <%= __('women') %>
+          </a>
+          <a class="navbar-item">
+            <%= __('shoes') %>
+          </a>
+        </div>
       </div>
-  
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a href="/registro" class="button is-button-blue-plate">
-              <strong>Registrate</strong>
-            </a>
-            <a href="/login" class="button is-button-blue-green">
-              Mi Cuenta
-            </a>
-          </div>
+
+      <a href="/beneficios" class="navbar-item">
+        <%= __('benefits') %>
+      </a>
+      <a href="/ventajas" class="navbar-item">
+        <%= __('advantages') %>
+      </a>
+
+      <a href="/nosotros" class="navbar-item">
+        <%= __('us') %>
+      </a>
+
+      <a href="/contactos" class="navbar-item">
+        <%= __('contact') %>
+      </a>
+
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a href="/registro" class="button is-button-blue-plate">
+            <strong>Registrate</strong>
+          </a>
+          <a href="/login" class="button is-button-blue-green">
+            <%= __('login') %>
+          </a>
+          <form method="get" action="/">
+            <div class="select">
+              <select class="fa-solid" name="lang" onchange="this.form.submit()">
+                <option value="es" <%=locale==='es' ? 'selected' : '' %>>&#xf1ab; Español</option>
+                <option value="en" <%=locale==='en' ? 'selected' : '' %>>&#xf0ac; English</option>
+                
+              </select>
+            </div>
+          </form>
+
         </div>
       </div>
     </div>
+  </div>
 </nav>

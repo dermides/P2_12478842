@@ -3,24 +3,45 @@ import cors from "cors";
 import session from 'express-session';
 import flash from 'connect-flash';
 import "./auth/google";
-
 import routeHome from "./routes/home";
 import contactsRoute from './routes/contactsRoute';
 import routeAdmin from "./routes/admin";
 import routePayment from "./routes/paymentRoute";
 import routeAuth from "./routes/auth";
-
-
 import dotenv from 'dotenv';
 import { join } from "path";
 import passport from "passport";
-
+import i18n from 'i18n';
+import cookieParser from 'cookie-parser';
+import path from 'path';
 
 dotenv.config();
 
+i18n.configure({
+  locales: ['en', 'es'],
+  directory: path.join(__dirname, 'locales'),
+  defaultLocale: 'es',
+  cookie: 'lang',
+  queryParameter: 'lang',
+  autoReload: true,
+  updateFiles: false,
+  objectNotation: true
+});
+
 const app = express();
-//const MemoryStore = require('memorystore')(session)
-//const GoogleStrategy = require('passport-google-oauth20').Strategy;
+app.use(cookieParser());
+app.use(i18n.init);
+
+app.use((req, res, next) => {
+  const lang = req.query.lang as string;
+  if (lang) {
+    res.cookie('lang', lang, { maxAge: 900000 });
+    req.setLocale(lang);
+  }
+  res.locals.__ = res.__; // Para usar en EJS
+  res.locals.locale = req.getLocale(); // Para saber idioma actual
+  next();
+});
 
 
 app.use(cors());
@@ -71,9 +92,9 @@ app.use(routeAdmin); // Importar las rutas de admin.ts
 app.use(routePayment); // Importar las rutas de paymentRoute.ts
 app.use(routeAuth);  // Importar las rutas de auth.ts
 
-app.get("/auth/google", passport.authenticate("google", { scope: ["profile","email"] }));
+app.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
 app.get("/auth/google/credencial", passport.authenticate("google", {
-    failureRedirect: "/admin/login",
+  failureRedirect: "/admin/login",
 }), (_req, res) => res.render("admin/panel"));
 
 

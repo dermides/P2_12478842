@@ -1,11 +1,12 @@
-<%- include('../layouts/header', {titulopage: 'Ventajas'}); -%>
+<%- include('../layouts/header', {titulopage: __('advantages')}); -%>
 <%- include('../layouts/navbar'); -%>
     <section class="hero is-medium has-background-text-45 mt-6">
         
         <div class="hero-body">
-          <p class="title has-text-primary-100 has-text-right">Ventajas</p>
+          <p class="title has-text-primary-100 has-text-right"><%= __('advantages') %></p>
           <p class="subtitle has-text-primary-100 has-text-right">
-            Accede a prendas de alta calidad sin tener que pagar precios excesivos.
+            <%= __('advantages_subtitle') %>
+
         </p>
           
         </div>
@@ -17,11 +18,9 @@
                 <div class="card">
                     <div class="card-content has-background-info-75">
                         <p class="title">
-                            "El alquiler permite probar ropa de lujo o de diseñador 
-                            sin tener que comprarla, lo que democratiza el acceso 
-                            a la moda."
+                            <%= __('advantages_title_dos') %>
                         </p>
-                        <p class="subtitle">Acceso</p>
+                        <p class="subtitle"><%= __('advantages_sub_dos') %></p>
                     </div>
                 </div>
             </div>
@@ -30,11 +29,10 @@
                 <div class="card">
                     <div class="card-content has-background-link-75">
                         <p class="title">
-                            "Al alquilar, se pueden probar diferentes estilos y 
-                            tendencias sin tener que invertir grandes cantidades 
-                            de dinero en el armario"
+                            
+                            <%= __('advantages_title_tres') %>
                         </p>
-                        <p class="subtitle">Variedad</p>
+                        <p class="subtitle"><%= __('benefits_title_sexto') %></p>
                     </div>
                 </div>
             </div>
@@ -44,11 +42,10 @@
                 <div class="card">
                     <div class="card-content has-background-danger-80">
                         <p class="title">
-                            "Al alquilar, se reduce la necesidad de producir nuevas prendas, 
-                            disminuyendo el desperdicio textil y el consumo de recursos como agua, 
-                            energía y materias primas" 
+                            
+                            <%= __('advantages_title_cuatro') %>
                         </p>
-                        <p class="subtitle">Reduccion de residuos</p>
+                        <p class="subtitle"><%= __('advantages_sub_tres') %></p>
                     </div>
                 </div>
             </div>
@@ -58,9 +55,10 @@
                 <div class="card">
                     <div class="card-content has-background-link-80">
                         <p class="title">
-                            "No necesitas un gran espacio para guardar prendas que solo usarás ocasionalmente" 
+                            
+                            <%= __('advantages_title_cinco') %>
                         </p>
-                        <p class="subtitle">Almacenamiento</p>
+                        <p class="subtitle"><%= __('advantages_sub_cinco') %></p>
                     </div>
                 </div>
             </div>
@@ -69,9 +67,10 @@
                 <div class="card">
                     <div class="card-content has-background-info-60">
                         <p class="title">
-                            "Nuestros servicios ofrecen una amplia gama de estilos y tallas para elegir."
+                            
+                            <%= __('advantages_title_seis') %>
                         </p>
-                        <p class="subtitle">Variedad</p>
+                        <p class="subtitle"><%= __('benefits_title_sexto') %></p>
                     </div>
                 </div>
             </div>

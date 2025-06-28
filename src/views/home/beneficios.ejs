@@ -1,9 +1,9 @@
-<%- include('../layouts/header', {titulopage: 'Beneficios'}); -%>
+<%- include('../layouts/header', {titulopage: __('benefits')}); -%>
 <%- include('../layouts/navbar'); -%>
     <section class="hero is-medium has-background-text-45 mt-6">
         <div class="hero-body">
-          <p class="title has-text-primary-100 has-text-right">Beneficios</p>
-          <p class="subtitle has-text-primary-100 has-text-right">Alquila un traje para tu beneficio</p>
+          <p class="title has-text-primary-100 has-text-right"><%= __('benefits') %></p>
+          <p class="subtitle has-text-primary-100 has-text-right"><%= __('benefits_subtitle') %></p>
         </div>
     </section>
 
@@ -13,17 +13,18 @@
                 <div class="card">
                     <div class="card-content has-background-primary-35">
                         <p class="title">
-                            "Alquilar puede ser más económico que comprar."
+                            <%= __('benefits_title') %>
                         </p>
-                        <p class="subtitle">Ahorro</p>
+                        <p class="subtitle"><%= __('benefits_title_dos') %></p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-content has-background-warning-70">
                         <p class="title">
-                            "Puedes elegir un traje que se ajuste a la ocasión y a tu estilo sin tener que invertir una gran cantidad de dinero."
+                            
+                            <%= __('benefits_subtitle_tres') %>
                         </p>
-                        <p class="subtitle">Flexibilidad</p>
+                        <p class="subtitle"><%= __('benefits_title_tres') %></p>
                     </div>
                 </div>
             </div>
@@ -31,17 +32,19 @@
                 <div class="card">
                     <div class="card-content has-background-danger-80">
                         <p class="title">
-                            "No tienes que preocuparte por limpiar, planchar o guardar el traje después del evento." 
+                             
+                            <%= __('benefits_subtitle_cuatro') %>
                         </p>
-                        <p class="subtitle">Comodidad</p>
+                        <p class="subtitle"><%= __('benefits_title_cuatro') %></p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-content has-background-link-80">
                         <p class="title">
-                            "No necesitas espacio de almacenamiento para un traje que no usarás con frecuencia." 
+                            
+                            <%= __('benefits_subtitle_quinto') %>
                         </p>
-                        <p class="subtitle">Espacio</p>
+                        <p class="subtitle"><%= __('benefits_title_quinto') %></p>
                     </div>
                 </div>
             </div>
@@ -49,9 +52,10 @@
                 <div class="card">
                     <div class="card-content has-background-info-60">
                         <p class="title">
-                            "Nuestros servicios ofrecen una amplia gama de estilos y tallas para elegir."
+                            
+                            <%= __('benefits_subtitle_sexto') %>
                         </p>
-                        <p class="subtitle">Variedad</p>
+                        <p class="subtitle"><%= __('benefits_title_sexto') %></p>
                     </div>
                 </div>
             </div>
