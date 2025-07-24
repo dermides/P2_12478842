@@ -16,6 +16,7 @@ router.get('/admin/login', authController.userLogin);
 router.post('/admin/login', authController.userPass);
 
 //router.get('/admin',adminController.panelAdmin);
+router.get('/admin/registroadmin', authController.userRegistro);
 
 router.get('/admin/contactos', isAuthenticated, ContactsController.indexContactos);
 router.get('/admin/pagos', isAuthenticated, paymentController.indexPagos);
