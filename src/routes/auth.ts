@@ -4,10 +4,10 @@ import authController from '../controllers/authController';
 
 const router = express.Router();
 
-//routeHome.get("/", renderHome);
+routeHome.get("/", renderHome);
 
 router.get("auth/registro", authController.userRegistro);
-//routeAuth.get("admin/login");
+routeAuth.get("admin/login");
 
 
 
